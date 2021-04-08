@@ -1,0 +1,23 @@
+<div class="card text-center">
+    <div class="card-header">All Customers</div>
+    <div class="card-body">
+        <table class="table table-success table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Company</th>
+                    <th scope="col">Findeks Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let customer of customers">
+                    <td>{{ customer.userId }}</td>
+                    <td>{{ customer.userName}}</td>
+                    <td>{{ customer.companyName}}</td>
+                    <td>{{ customer.findeksScore}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

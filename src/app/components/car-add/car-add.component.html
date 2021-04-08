@@ -1,0 +1,47 @@
+<div class="content" style="margin-top: 50px;">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="title">Add Vechile</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="carAddForm">
+                    <label for="brandSelect">Brand </label>
+                    <div class="form-group">
+                        <select formControlName="brandID" class="form-control" id="brandSelect">
+                            <option *ngFor="let brand of brands" [value]="brand.id">{{brand.name}}</option>
+                        </select>
+                    </div>
+                    <label for="brandSelect">Name </label>
+                    <div class="form-group">
+                        <input type="text" formControlName="name" class="form-control" id="name">
+                    </div>
+                    <label for="colorSelect">Color </label>
+                    <div class="form-group">
+                        <select formControlName="colorID" class="form-control" id="colorSelect">
+                            <option *ngFor="let color of colors" [value]="color.id">{{color.name}}</option>
+                        </select>
+                    </div>
+                    <label for="modelYear">Model Year </label>
+                    <div class="form-group">
+                        <input type="number" id="modelYear" formControlName="modelYear" class="form-control"
+                            placeholder=" " />
+                    </div>
+                    <label for="dailyPrice">Daily Price</label>
+                    <div class="form-group">
+                        <input type="number" id="dailyPrice" formControlName="dailyPrice" class="form-control"
+                            placeholder="0.00" />
+                    </div>
+                    <label for="description">Desription</label>
+                    <div class="form-group">
+                        <input type="textarea" id="description" formControlName="description" class="form-control"
+                            placeholder=" " />
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-primary" (click)="addCar()">Add</button>
+            </div>
+        </div>
+    </div>
+</div>

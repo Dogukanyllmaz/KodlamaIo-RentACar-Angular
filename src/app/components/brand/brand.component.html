@@ -1,0 +1,13 @@
+<div style="margin-top: 10px" class="mb-3">
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Search Brand..." />
+</div>
+<div *ngIf="filterText" class="alert alert-success">
+    You look this {{ filterText }}
+</div>
+<ul class="list-group" style="margin: 5px">
+    <li routerLink="/cars" [class]="getAllBrandClass()">All Brands</li>
+    <li (click)="setCurrentBrand(brand)" routerLink="/cars/brand/{{ brand.id }}"
+        *ngFor="let brand of brands | brandFilter: filterText" [class]="getCurrentBrandClass(brand)">
+        {{ brand.name }}
+    </li>
+</ul>

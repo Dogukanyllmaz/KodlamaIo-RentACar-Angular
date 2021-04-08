@@ -1,0 +1,90 @@
+<table class="table table">
+    <thead class="table">
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Color Id</th>
+            <th scope="col">Color</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let color of colors">
+        <tr>
+            <th></th>
+            <th scope="row">{{color.id}}</th>
+            <td colspan="2">{{color.name}}</td>
+        </tr>
+    </tbody>
+</table>
+<div class="row align-items-md-stretch">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="title">Add</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="colorAddForm">
+                    <div class="mb-3">
+                        <label for="unitPrice">Color</label>
+                        <div class="form-group">
+                            <input type="text" id="colorName" formControlName="colorName" class="form-control"
+                                placeholder="" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-primary" (click)="colorAdd()">Add</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div>
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="title">Update</h5>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="colorUpdateForm">
+                        <div class="mb-3">
+                            <label for="unitPrice">Color Id</label>
+                            <div class="form-group">
+                                <input type="number" id="colorId" formControlName="colorId" class="form-control"
+                                    placeholder="" />
+                            </div>
+                            <label for="unitPrice">Color</label>
+                            <div class="form-group">
+                                <input type="text" id="colorName" formControlName="colorName" class="form-control"
+                                    placeholder="" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-fill btn-primary" (click)="colorUpdate()">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div>
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="title">Delete</h5>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="colorDeleteForm">
+                        <div class="mb-3">
+                            <label for="unitPrice">Color Id</label>
+                            <div class="form-group">
+                                <input type="number" id="colorId" formControlName="colorId" class="form-control"
+                                    placeholder="" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-fill btn-primary" (click)="colorDelete()">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

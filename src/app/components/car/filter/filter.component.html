@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <select [(ngModel)]="currentBrandId" class="form-select form-select-sm" aria-label=".form-select-sm example">
+            <option selected disabled>Choose Brand...</option>
+
+            <option [value]="brand.id" *ngFor="let brand of brands ">{{brand.name}}
+            </option>
+
+        </select>
+    </div>
+
+    <div class="row">
+
+        <select [(ngModel)]="currentColorId" class="form-select form-select-sm" aria-label=".form-select-sm example">
+            <option selected disabled>Choose Color...</option>
+            <option [value]=color.id *ngFor="let color of colors">{{color.name}}</option>
+
+        </select>
+    </div>
+
+    <div class="row">
+        <button routerLink="/cars/filter/{{currentBrandId}}/{{currentColorId}}" type="button"
+            class="btn btn-primary">Search</button>
+        <button routerLink="/cars" type="button" class="btn btn-danger">Clear</button>
+    </div>
+</div>

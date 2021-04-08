@@ -1,0 +1,101 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">User Information</h5>
+                </div>
+                <div class="card-body">
+
+
+                    <form [formGroup]="profileForm">
+                        <input type="hidden" id="id" formControlName="id" [ngModel]="user.id" class="form-control" />
+
+                        <div class="mb-3 row">
+                            <label for="userName" class="col-sm-2 col-form-label">First Name</label>
+                            <div class="col-sm-10">
+                                <input type="text " id="userName" formControlName="userName" [ngModel]="user.firstName"
+                                    class="form-control" placeholder="Name" />
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="userName" class="col-sm-2 col-form-label">Last Name</label>
+                            <div class="col-sm-10">
+                                <input type="text " id="userName" formControlName="userName" [ngModel]="user.lastName"
+                                    class="form-control" placeholder="Name" />
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="email" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="email" formControlName="email" class="form-control"
+                                    [ngModel]="user.email" placeholder="Email" />
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="password" class="col-sm-2 col-form-label">password</label>
+                            <div class="col-sm-10">
+                                <input type="password" id="password" formControlName="password" class="form-control"
+                                    placeholder="password" />
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-outline-primary" (click)="updateProfile()">Update</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Company Information</h5>
+                </div>
+                <div>
+                    <p-card>
+                        <div class="row justify-content-center">
+                            <form [formGroup]="customerForm">
+                                <div class="p-field p-md-2 p-grid" style="margin-top: 5px;">
+                                    <label for="companyName" class="col-sm-3 col-form-label"> Company Name</label>
+                                    <span class="p-float-label p-col-fixed">
+                                        <div class="mb-3 row">
+                                            <div class="col-sm-10">
+                                                <input type="text" id="companyName" formControlName="companyName"
+                                                    class="form-control" placeholder="Company Name" />
+                                            </div>
+                                        </div>
+                                    </span>
+                                </div>
+
+                                <div class="card-footer">
+                                    <button class="btn btn-outline-primary" (click)="updateCustomer()">Update</button>
+                                </div>
+
+                            </form>
+                            <div *ngIf="customer">
+                                <p-card>
+                                    <div class="col-md-12">
+                                        <div class="d-flex justify-content-center">
+                                            <span class="form-control">
+                                                <label for="input-tel">Findeks Score</label>
+                                                <input type="text" style="width:95%" disabled
+                                                    [(ngModel)]="customer.findeksScore" id="disabled-findeks"
+                                                    pInputText>
+
+                                            </span>
+                                        </div>
+                                    </div>
+                                </p-card>
+                            </div>
+
+                        </div>
+                    </p-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

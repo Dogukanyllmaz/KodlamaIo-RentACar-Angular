@@ -1,0 +1,90 @@
+<table class="table table">
+    <thead class="table">
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Brand Id</th>
+            <th scope="col">Brand</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let brand of brands">
+        <tr>
+            <th></th>
+            <th scope="row">{{brand.id}}</th>
+            <td colspan="2">{{brand.name}}</td>
+        </tr>
+    </tbody>
+</table>
+<div class="row align-items-md-stretch">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="title">Add</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="brandAddForm">
+                    <div class="mb-3">
+                        <label for="unitPrice">Brand</label>
+                        <div class="form-group">
+                            <input type="text" id="brandName" formControlName="brandName" class="form-control"
+                                placeholder="" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-primary" (click)="add()">Add</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div>
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="title">Update</h5>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="brandUpdateForm">
+                        <div class="mb-3">
+                            <label for="unitPrice">Brand Id</label>
+                            <div class="form-group">
+                                <input type="number" id="brandId" formControlName="brandId" class="form-control"
+                                    placeholder="" />
+                            </div>
+                            <label for="unitPrice">Brand</label>
+                            <div class="form-group">
+                                <input type="text" id="brandName" formControlName="brandName" class="form-control"
+                                    placeholder="" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-fill btn-primary" (click)="update()">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div>
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="title">Delete</h5>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="brandDeleteForm">
+                        <div class="mb-3">
+                            <label for="unitPrice">Brand Id</label>
+                            <div class="form-group">
+                                <input type="number" id="brandId" formControlName="brandId" class="form-control"
+                                    placeholder="" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-fill btn-primary" (click)="delete()">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

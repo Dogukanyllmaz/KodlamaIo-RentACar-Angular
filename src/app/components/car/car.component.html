@@ -1,0 +1,15 @@
+<div *ngIf="dataLoaded == false" class="spinner-border text-info m-4" role="status"></div>
+<div class="row">
+    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" [(ngModel)]="filterText">
+    <div *ngFor="let car of cars | navCarFilter:filterText" class="card" style="width: 18rem;">
+        <img [src]="imageUrl + car.imagePath" (error)="car.imagePath = 'uploads/default.jpg'" height="100%" width="100%"
+            class="card-img-top" alt="Car image">
+        <div class="card-body">
+            <h5 class="card-title">{{car.name | uppercase}}</h5>
+            <p class="card-text">{{car.brandName}} - {{car.colorName}}</p>
+            <p class="card-text">{{car.description}}</p>
+            <p class="card-text">{{car.dailyPrice | currency:"₺"}}</p>
+            <button class="btn btn-primary" routerLink="/cars/details/{{car.id}}">See more</button>
+        </div>
+    </div>
+</div>
