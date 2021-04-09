@@ -12,20 +12,13 @@
                         <input type="hidden" id="id" formControlName="id" [ngModel]="user.id" class="form-control" />
 
                         <div class="mb-3 row">
-                            <label for="userName" class="col-sm-2 col-form-label">First Name</label>
+                            <label for="userName" class="col-sm-2 col-form-label">Name</label>
                             <div class="col-sm-10">
-                                <input type="text " id="userName" formControlName="userName" [ngModel]="user.firstName"
-                                    class="form-control" placeholder="Name" />
+                                <input type="text " id="userName" formControlName="userName" [ngModel]="user.userName"
+                                    class=" form-control" placeholder="Name" />
                             </div>
                         </div>
 
-                        <div class="mb-3 row">
-                            <label for="userName" class="col-sm-2 col-form-label">Last Name</label>
-                            <div class="col-sm-10">
-                                <input type="text " id="userName" formControlName="userName" [ngModel]="user.lastName"
-                                    class="form-control" placeholder="Name" />
-                            </div>
-                        </div>
 
                         <div class="mb-3 row">
                             <label for="email" class="col-sm-2 col-form-label">Email</label>
