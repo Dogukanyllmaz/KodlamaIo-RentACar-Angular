@@ -4,6 +4,7 @@
 .resimYazisi {
   position: absolute;
   left: 10px;
-  top: 300px;
+  top: 500px;
   color: gainsboro;
+  opacity: 0.5;
 }

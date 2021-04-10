@@ -1,67 +1,50 @@
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-<div *ngIf="dataLoaded == false" class="spinner-border text-info m-4" role="status"></div>
-<div class="card">
-    <div class="card-body">
-        <div class="d-grid gap-2 mb-2" *ngIf="car && car.status == true">
-            <app-rental [car]="car"></app-rental>
-        </div>
-        <div class="d-grid gap-2 mb-2" *ngIf="car && car.status == false">
-            <div class="alert alert-danger">!the car not available!</div>
-        </div>
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+<div class="row mt-4">
+    <div class="col-lg-8">
+        <div id="carouselExampleControls" class="carousel carousel-dark  slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                <div *ngFor="let carImage of images let i = index" [ngClass]="getSliderClassName(i)">
-                    <img src="https://localhost:44326{{ carImage.imagePath }}" class="d-block w-100" width="800"
-                        height="550" alt="{{car.name}}">
+                <div *ngFor="let carImage of carImages" (click)="setCurrentImageClass(carImage)"
+                    [class]="getCurrentImageClass(carImage)">
+                    <img src="{{ imageBaseUrl + carImage.imagePath }}" class="d-block w-100" alt="..."
+                        style="width: 760px; height: 451px;" />
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
                 data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
                 data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
             </button>
         </div>
-        <table class="table m-1">
-            <thead>
-                <tr>
-                    <th scope="col">
-                        Brand
-                    </th>
-                    <th scope="col">
-                        Color
-                    </th>
-                    <th scope="col">
-                        Model Year
-                    </th>
-                    <th scope="col">
-                        Daily Price
-                    </th>
-                    <th scope="col">
-                        Description
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-            <tbody>
-                <tr>
-                    <td>{{ car.brandName }}</td>
-                    <td>{{ car.colorName }}</td>
-                    <td>{{ car.modelYear }}</td>
-                    <td>{{ car.dailyPrice | currency:'₺' }}</td>
-                    <td>{{ car.description }}</td>
-                    <td>
-                        <button class="btn btn-primary" routerLink="/cars">
-                            Back to Showroom
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    </div>
+
+    <div *ngIf="carDetail" class="col-lg-4 my-auto">
+        <h1>{{ carDetail.brandName }}</h1>
+        <hr>
+        <ul class="list-unstyled">
+            <li>
+                <h5>
+                    <strong>Model: </strong>
+                    {{ carDetail.name }}
+                </h5>
+            </li>
+            <li>
+                <h5><strong>Color: </strong>{{ carDetail.colorName }}</h5>
+            </li>
+            <li>
+                <h5><strong>Age: </strong>{{ carDetail.modelYear }}</h5>
+            </li>
+            <li>
+                <h5><strong>Description: </strong>{{ carDetail.description }}</h5>
+            </li>
+            <li>
+                <h5><strong>Daily Price: </strong>{{ carDetail.dailyPrice | currency:"₺"}} </h5>
+            </li>
+            <li>
+                <h5><strong>Findex Score: </strong>{{ carDetail.minFindex}}</h5>
+            </li>
+            <app-rental-car></app-rental-car>
+        </ul>
     </div>
 </div>

@@ -1,3 +1,11 @@
-.dropdown {
-  margin-right: 130px;
+.right {
+  right: -400px;
+}
+.btn {
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.butonyeri {
+  margin-left: 480px;
 }

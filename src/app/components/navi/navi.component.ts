@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
-import { LocalStorageService } from '../../services/local-storage.service';
-import { UserService } from '../../services/user.service';
 import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
+import { OperationClaim } from 'src/app/models/operationClaim';
 import { UserModel } from 'src/app/models/userModel';
+import { AuthService } from 'src/app/services/auth.service';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-navi',
@@ -12,50 +12,48 @@ import { UserModel } from 'src/app/models/userModel';
   styleUrls: ['./navi.component.css'],
 })
 export class NaviComponent implements OnInit {
-  email = this.localStorageService.get('email');
-  user: UserModel = new UserModel();
-
+  user: UserModel;
+  claims: OperationClaim[];
   constructor(
     private authService: AuthService,
-    private localStorageService: LocalStorageService,
     private userService: UserService,
-    private toastrService: ToastrService,
-    private router: Router
+    private localStorageService: LocalStorageService,
+    private toastrService: ToastrService
   ) {}
-
+  Authenticated: boolean;
   ngOnInit(): void {
-    this.checkToLogin();
-    this.checkToEmail();
-    this.getEmail();
+    this.isAuthenticated();
+    this.getByUserId();
+    this.getClaims();
   }
-
-  checkToLogin() {
+  getClaims() {
+    this.userService
+      .getUserClaims(Number(this.localStorageService.get('userId')))
+      .subscribe((response) => {
+        this.claims = response.data;
+      });
+  }
+  isAuthenticated() {
     if (this.authService.isAuthenticated()) {
-      return true;
+      this.Authenticated = true;
     } else {
-      return false;
+      this.Authenticated = false;
     }
   }
 
-  checkToEmail() {
-    if (this.localStorageService.get('email')) {
-      return true;
-    } else {
-      return false;
-    }
+  getByUserId() {
+    this.userService
+      .getUserByUserId(Number(this.localStorageService.get('userId')))
+      .subscribe((response) => {
+        this.user = response.data;
+      });
   }
 
   logOut() {
     this.localStorageService.clean();
-    this.toastrService.success('Successful logout');
-    this.router.navigate(['/']);
-  }
-
-  getEmail() {
-    if (this.email) {
-      this.userService.getByEmail(this.email).subscribe((response) => {
-        this.user = response;
-      });
-    }
+    this.toastrService.info('Çıkış Yapıldı', 'Bilgi');
+    setTimeout(function () {
+      location.reload();
+    }, 400);
   }
 }

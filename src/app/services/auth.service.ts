@@ -8,6 +8,8 @@ import { LoginModel } from '../models/loginModel';
 import { TokenModel } from '../models/token';
 import { RegisterModel } from '../models/registerModel';
 import { environment } from 'src/environments/environment';
+import { UserDetail } from '../models/userDetail';
+import { ResponseModel } from '../models/responseModel';
 
 @Injectable({
   providedIn: 'root',
@@ -76,5 +78,12 @@ export class AuthService {
       this.storageService.getToken()!
     );
     return !isExpired;
+  }
+
+  changePassword(userDetail: UserDetail): Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(
+      this.apiUrl + 'auth/changepassword',
+      userDetail
+    );
   }
 }

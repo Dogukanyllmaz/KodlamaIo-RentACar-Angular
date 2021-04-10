@@ -9,6 +9,11 @@ export class LocalStorageService {
   constructor() {
     this.localStorage = window.localStorage;
   }
+
+  add(key: string, value: any) {
+    localStorage.setItem(key, value);
+  }
+
   get(key: string) {
     return this.localStorage.getItem(key);
   }

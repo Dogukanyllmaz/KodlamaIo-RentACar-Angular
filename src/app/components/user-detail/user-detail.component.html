@@ -1,0 +1,56 @@
+<div class="container">
+    <br />
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="title" style="text-align: center">
+                        Profile Information
+                    </h5>
+                </div>
+                <div class="card-body" *ngFor="let user of user">
+                    <form [formGroup]="updateUserForm">
+                        <div class="mb-3">
+                            <label for="findexPoint" class="form-label">Findex Score</label>
+                            <input type="number" class="form-control" formControlName="findexPoint" id="findexPoint"
+                                placeholder="{{ user.findexPoint }}" readonly />
+                        </div>
+                        <div class="mb-3">
+                            <label for="firstName" class="form-label">FirstName</label>
+                            <input type="text" class="form-control" formControlName="firstName" id="firstName"
+                                placeholder="{{ user.firstName }}" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="lastName" class="form-label">LastName</label>
+                            <input type="text" class="form-control" formControlName="lastName" id="lastName"
+                                placeholder="{{ user.lastName }}" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="text" class="form-control" formControlName="email" id="email"
+                                placeholder="{{ user.email }}" />
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-fill btn-primary pull-rigth" (click)="update()">
+                        Update
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <app-customer-detail></app-customer-detail>
+        </div>
+    </div>
+</div>
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <button class="btn btn-primary" routerLink="/changePassword">
+                Update Password
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,66 +1,27 @@
-<div class="d-grid gap-2">
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Rent the Car
-    </button>
+<div *ngIf="dataLoaded == false" class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
 </div>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
-                    Rent the Car
-                </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-
-            <div class="modal-body">
-
-                <label for="example-date-input" class="col-4 col-form-label">Daily Price:</label>
-                <div class="form-group row mb-2">
-                    <div class="col-8">
-                        <input id="dailyPrice" type="text" disabled="disabled" class="form-control"
-                            [value]="car.dailyPrice | currency:'₺' " />
-                    </div>
-                </div>
-
-                <label for="example-date-input" class="col-4 col-form-label">Customer :</label>
-                <div class="form-group row mb-2">
-                    <div class="col-8">
-                        <select class="form-select" [(ngModel)]="customerId">
-                            <option [value]="customer.userId" *ngFor="let customer of customers">
-                                {{ customer.companyName }}
-                            </option>
-                        </select>
-                    </div>
-                </div>
-
-                <label for="example-date-input" class="col-4 col-form-label">Rent Date:</label>
-                <div class="form-group row mb-2">
-                    <div class="col-8">
-                        <input class="form-control" min="{{ getRentMinDate() }}" value="{{ getRentMinDate() }}"
-                            type="date" [(ngModel)]="rentDate" />
-                    </div>
-                </div>
-
-                <label for="example-date-input" class="col-4 col-form-label">Return Date:</label>
-                <div class="form-group row">
-                    <div class="col-8">
-                        <input class="form-control" type="date" min="{{ getReturnMinDate() }}"
-                            value="{{ getReturnMinDate() }}" [(ngModel)]="returnDate" />
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="modal-footer">
-                <button data-bs-dismiss="modal" (click)="add()" type="button" class="btn btn-primary">
-                    Rent
-                </button>
-
-            </div>
-
-        </div>
-    </div>
-</div>
+<h3 class="" style="text-align: center">Rentals List</h3>
+<table class="table" style="text-align: center">
+    <thead *ngIf="dataLoaded != false">
+        <tr>
+            <th>Id</th>
+            <th>Brand</th>
+            <th>Customer Name</th>
+            <th>Rent Date</th>
+            <th>Return Date</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let rental of rentals">
+        <td>{{ rental.id }}</td>
+        <td>{{ rental.brandName }}</td>
+        <td>{{ rental.userName }}</td>
+        <td>{{ rental.rentDate }}</td>
+        <td *ngIf="rental.returnDate == null">Undelivered</td>
+        <td *ngIf="rental.returnDate != null">
+            {{ rental.returnDate }}
+        </td>
+        <td>{{ rental.description }}</td>
+    </tr>
+</table>

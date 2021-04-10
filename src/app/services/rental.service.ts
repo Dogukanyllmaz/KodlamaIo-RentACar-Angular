@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ListResponseModel } from '../models/listResponseModel';
 import { Rental } from '../models/rental';
+import { RentalDetail } from '../models/rentalDetail';
 import { ResponseModel } from '../models/responseModel';
 
 @Injectable({
@@ -12,6 +13,12 @@ import { ResponseModel } from '../models/responseModel';
 export class RentalService {
   apiUrl = environment.apiUrl + 'rentals/';
   constructor(private httpClient: HttpClient) {}
+
+  getRental(): Observable<ListResponseModel<RentalDetail>> {
+    return this.httpClient.get<ListResponseModel<RentalDetail>>(
+      this.apiUrl + 'getrentaldetails'
+    );
+  }
 
   getRentals(): Observable<ListResponseModel<Rental>> {
     let newPath = this.apiUrl + 'getall';

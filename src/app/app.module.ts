@@ -31,7 +31,13 @@ import { BrandAddComponent } from './components/brand-add/brand-add.component';
 import { ColorAddComponent } from './components/color-add/color-add.component';
 import { CarAddComponent } from './components/car-add/car-add.component';
 import { ColorComponent } from './components/color/color.component';
-import { ProfileComponent } from './components/profile/profile.component';
+import { UserDetailComponent } from './components/user-detail/user-detail.component';
+import { CustomerDetailComponent } from './components/customer-detail/customer-detail.component';
+import { CustomerNullComponent } from './components/customer-null/customer-null.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { RentalCarComponent } from './components/rental-car/rental-car.component';
+import { VatAddedPipe } from './pipes/vat-added.pipe';
+import { CustomerAddComponent } from './components/customer-add/customer-add.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +61,13 @@ import { ProfileComponent } from './components/profile/profile.component';
     ColorAddComponent,
     CarAddComponent,
     ColorComponent,
-    ProfileComponent,
+    UserDetailComponent,
+    CustomerDetailComponent,
+    CustomerNullComponent,
+    ChangePasswordComponent,
+    RentalCarComponent,
+    VatAddedPipe,
+    CustomerAddComponent,
   ],
   imports: [
     BrowserModule,

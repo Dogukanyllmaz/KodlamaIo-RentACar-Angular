@@ -1,18 +1,42 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Card } from 'primeng/card';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { ListResponseModel } from '../models/listResponseModel';
 import { ResponseModel } from '../models/responseModel';
+import { SingleResponseModel } from '../models/singleResponseModel';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PaymentService {
-  apiUrl = environment.apiUrl + 'cars/';
+  apiUrl = environment.apiUrl;
   constructor(private httpClient: HttpClient) {}
 
-  payment(): Observable<ResponseModel> {
-    let newPath = this.apiUrl + 'getall';
-    return this.httpClient.get<ResponseModel>(newPath);
+  saveCard(card: Card): Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(
+      this.apiUrl + 'saveCard/add',
+      card
+    );
+  }
+
+  getCardByUserId(userId: number): Observable<ListResponseModel<Card>> {
+    return this.httpClient.get<ListResponseModel<Card>>(
+      this.apiUrl + 'saveCard/getbyuserid?userId=' + userId
+    );
+  }
+  getCardByCardNumber(
+    cardNumber: string
+  ): Observable<SingleResponseModel<Card>> {
+    return this.httpClient.get<SingleResponseModel<Card>>(
+      this.apiUrl + 'saveCard/getbycardnumber?cardNumber=' + cardNumber
+    );
+  }
+
+  checkCardExist(cardNumber: string): Observable<ListResponseModel<Card>> {
+    return this.httpClient.get<ListResponseModel<Card>>(
+      this.apiUrl + 'saveCard/getbycardnumber?cardNumber=' + cardNumber
+    );
   }
 }

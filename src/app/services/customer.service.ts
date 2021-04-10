@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Customer } from '../models/customer';
+import { CustomerDetail } from '../models/customerDetail';
 import { ListResponseModel } from '../models/listResponseModel';
 import { ResponseModel } from '../models/responseModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
@@ -14,16 +15,26 @@ export class CustomerService {
   apiUrl = environment.apiUrl + 'customers/';
   constructor(private httpClient: HttpClient) {}
 
-  getCustomers(): Observable<ListResponseModel<Customer>> {
-    let newPath = this.apiUrl + 'getalldetails';
-    return this.httpClient.get<ListResponseModel<Customer>>(newPath);
+  getCustomer(): Observable<ListResponseModel<CustomerDetail>> {
+    return this.httpClient.get<ListResponseModel<CustomerDetail>>(
+      this.apiUrl + 'getalldetails'
+    );
   }
-  getCustomerById(userId: number): Observable<SingleResponseModel<Customer>> {
-    let newPath = this.apiUrl + 'getbyid?id=' + userId;
-    return this.httpClient.get<SingleResponseModel<Customer>>(newPath);
+
+  getCustomerByUserId(userId: number): Observable<ListResponseModel<Customer>> {
+    return this.httpClient.get<ListResponseModel<Customer>>(
+      this.apiUrl + 'getbyuserid?userId=' + userId
+    );
   }
-  customerUpdate(customer: Customer): Observable<ResponseModel> {
-    let newPath = this.apiUrl + 'update';
-    return this.httpClient.post<ResponseModel>(newPath, customer);
+
+  add(customer: Customer): Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(this.apiUrl + 'add', customer);
+  }
+
+  update(customer: Customer): Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(
+      this.apiUrl + 'update',
+      customer
+    );
   }
 }

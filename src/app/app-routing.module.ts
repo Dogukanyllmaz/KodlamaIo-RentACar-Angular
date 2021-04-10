@@ -5,14 +5,17 @@ import { BrandComponent } from './components/brand/brand.component';
 import { CarAddComponent } from './components/car-add/car-add.component';
 import { CarDetailComponent } from './components/car-detail/car-detail.component';
 import { CarComponent } from './components/car/car.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { ColorAddComponent } from './components/color-add/color-add.component';
+import { CustomerAddComponent } from './components/customer-add/customer-add.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { PaymentComponent } from './components/payment/payment.component';
-import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
+import { RentalCarComponent } from './components/rental-car/rental-car.component';
 import { RentalComponent } from './components/rental/rental.component';
+import { UserDetailComponent } from './components/user-detail/user-detail.component';
 import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
@@ -27,7 +30,7 @@ const routes: Routes = [
     component: CustomerComponent,
     canActivate: [LoginGuard],
   },
-  { path: 'rentals', component: RentalComponent },
+  { path: 'rentals', component: RentalComponent, canActivate: [LoginGuard] },
   {
     path: 'payment/:rental',
     component: PaymentComponent,
@@ -40,7 +43,23 @@ const routes: Routes = [
   { path: 'brandadd', component: BrandAddComponent, canActivate: [LoginGuard] },
   { path: 'coloradd', component: ColorAddComponent, canActivate: [LoginGuard] },
   { path: 'caradd', component: CarAddComponent, canActivate: [LoginGuard] },
-  { path: 'profile', component: ProfileComponent, canActivate: [LoginGuard] },
+  { path: 'cars/rent', component: PaymentComponent, canActivate: [LoginGuard] },
+  { path: 'rentCar', component: RentalCarComponent, canActivate: [LoginGuard] },
+  {
+    path: 'profile',
+    component: UserDetailComponent,
+    canActivate: [LoginGuard],
+  },
+  {
+    path: 'customers/add',
+    component: CustomerAddComponent,
+    canActivate: [LoginGuard],
+  },
+  {
+    path: 'changePassword',
+    component: ChangePasswordComponent,
+    canActivate: [LoginGuard],
+  },
 ];
 
 @NgModule({

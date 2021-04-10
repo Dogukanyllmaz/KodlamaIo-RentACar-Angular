@@ -1,55 +1,47 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="font-size: large;">
+<nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
-        <a class="navbar-brand">Logo</a>
+        <a class="navbar-brand p-2" style=" font-size: 32px; color:#2c3e50; "> Rent-A-Car </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div class="collapse navbar-collapse m-2" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto ms-5 mb-lg-0 ">
                 <li class="nav-item">
-                    <a class="nav-link " routerLink="/home">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " routerLink="/cars">Showroom</a>
+                    <a class="nav-link" routerLink="/home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " routerLink="/customers">Customers</a>
+                    <a class="nav-link" routerLink="/cars">Showroom</a>
                 </li>
-
-                <li class="nav-item ">
-                    <a class="nav-link " aria-current="page" routerLink="/rents">Rents</a>
-                </li>
-
+                <form class="d-flex butonyeri" *ngIf="Authenticated == false">
+                    <button class="btn btn-danger" routerLink="/login/register">Kayıt Ol</button>
+                    <button class="btn btn-primary" type="submit" routerLink="/login">
+                        Giriş Yap
+                    </button>
+                </form>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="Authenticated != false">
+                    <li class="nav-item dropdown right">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            {{user.firstName}} {{user.lastName}} (Findex Score:{{user.findexPoint}})
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" routerLink="/profile">Profile</a></li>
+                            <hr class="dropdown-divider">
+                            <li><a class="dropdown-item" routerLink="/customers">Customers</a></li>
+                            <li><a class="dropdown-item" routerLink="/rentals">Rentals</a></li>
+                            <li><a class="dropdown-item" routerLink="/coloradd">Color-Edit</a></li>
+                            <li><a class="dropdown-item" routerLink="/brandadd">Brand-Edit</a></li>
+                            <li><a class="dropdown-item" routerLink="/caradd">Car-Edit</a></li>
+                            <hr class="dropdown-divider">
+                            <li>
+                                <a class="dropdown-item" (click)="logOut()"><i class="bi bi-power"></i> Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </ul>
 
-            <div class="text-end" *ngIf="checkToLogin()==false">
-                <button routerLink="/login/" type="button" class="btn btn-succes text-black">
-                    Giriş yap
-                </button>
-                <button routerLink="/register/" type="button" class="btn btn-success">
-                    Kayıt ol
-                </button>
-            </div>
-            <div class="dropdown text-end" *ngIf="checkToEmail()==true">
-                <a class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1"
-                    data-bs-toggle="dropdown" aria-expanded="true" type="button">
-
-                    {{this.user.firstName}}
-
-                </a>
-                <div class="dropdown-menu" aria-labelledby="dropdownUser1">
-                    <li><a routerLink="/profile/" class="dropdown-item">Profile</a></li>
-                    <li><a routerLink="caradd" class="dropdown-item">Car Edit</a></li>
-                    <li><a routerLink="brandadd" class="dropdown-item">Brand Edit</a></li>
-                    <li><a routerLink="coloradd" class="dropdown-item">Color Edit</a></li>
-                    <li>
-                        <hr class="dropdown-divider" />
-                    </li>
-                    <a (click)="logOut()" class="dropdown-item">Log Out</a>
-                </div>
-
-            </div>
         </div>
     </div>
 </nav>

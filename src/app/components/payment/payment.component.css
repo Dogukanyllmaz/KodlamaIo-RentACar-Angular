@@ -1,3 +1,5 @@
-.card {
-  margin: 20px;
+.my-btn {
+  background-color: teal;
+  color: whitesmoke;
+  float: right;
 }
