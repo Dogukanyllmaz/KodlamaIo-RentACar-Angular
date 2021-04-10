@@ -1,21 +1,21 @@
 <ul class="list-group list-group-flush">
     <li class="list-group-item">
-        Kiralanan Araç :
+        Rented vehicle :
         <strong>{{ carDetail.description }}</strong>
     </li>
     <li class="list-group-item">
-        Renk : <strong>{{ carDetail.colorName }}</strong>
+        Color : <strong>{{ carDetail.colorName }}</strong>
     </li>
     <li class="list-group-item">
-        Model :<strong> {{ carDetail.modelYear }}</strong>
+        Age :<strong> {{ carDetail.modelYear }}</strong>
     </li>
     <li class="list-group-item">
-        KDV'li Kira Fiyatı :
+        Rent Price with VAT :
         <strong>
             {{ carDetail.dailyPrice | vatAdded: 18 | currency: "₺" }}/Gün</strong>
     </li>
     <li class="list-group-item">
-        Toplam Ödenecek Tutar :
+        Total Amount Payable :
         <b class="text-success">{{
             amountOfPayment | vatAdded: 18 | currency: "₺"
             }}</b>
@@ -24,7 +24,8 @@
 <div class="row">
     <div class="col-md-5" *ngIf="savedCards.length > 0">
         <div class="card mt-4">
-            <div class="card-header text-center">Kayıtlı Kartlarım</div>
+            <div class="card-header text-center">My Registered Cards
+            </div>
             <div class="card-body">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item" *ngFor="let card of savedCards">
@@ -36,7 +37,7 @@
                         }}
                         <!-- Button trigger modal -->
                         <button type="button" class="btn my-btn" data-bs-toggle="modal" data-bs-target="#cardModal">
-                            Ödeme İçin Bu Kartı Kullan
+                            Use This Card To Pay
                         </button>
 
                         <!-- Modal -->
@@ -46,7 +47,7 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="cardModalLabel">
-                                            Bilgilendirme
+                                            Information
                                         </h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
@@ -58,14 +59,14 @@
                                         "************"
                                         )
                                         }}
-                                        Numaralı Kart İle Ödeme Yapılacak
+                                        Payment with Numbered Card
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                            Vazgeç
+                                            Return back
                                         </button>
                                         <button (click)="payWithSavedCard(card)" type="button" class="btn btn-primary">
-                                            Devam Et
+                                            Pay
                                         </button>
                                     </div>
                                 </div>
@@ -79,7 +80,7 @@
     <div [class]="setCardClass()">
         <div class="card mt-4">
             <div class="card-header text-center">
-                <strong>Ödeme İşlemi</strong>
+                <strong>Payment Process</strong>
             </div>
             <div class="icons" style="text-align: center">
                 <img src="https://img.icons8.com/color/48/000000/visa.png" />
@@ -90,35 +91,35 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="inputbox mt-3">
-                            <span>Kart Sahibinin Adı</span>
+                            <span>Card Holder Name</span>
                             <input type="text" name="name" class="form-control" formControlName="cardholderName"
-                                placeholder="Örn: Ali" />
+                                placeholder="e.g. Doğukan" />
                         </div>
                         <div class="inputbox mt-3">
-                            <span>Kart Sahibinin Soyadı</span>
+                            <span>Card Holder Surname</span>
                             <input type="text" name="name" class="form-control" formControlName="cardholderLastName"
-                                placeholder="Örn: Yılmaz" />
+                                placeholder="e.g. Yılmaz" />
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="inputbox mt-3 mr-2">
-                                    <span>Kart Numarası</span>
+                                    <span>Card Number</span>
                                     <input type="text" name="name" minlength="16" maxlength="16"
                                         formControlName="cardNumber" class="form-control"
-                                        placeholder="Örn: 1234567891011121" />
+                                        placeholder="e.g. 1234123412341234" />
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="d-flex flex-row">
                                     <div class="inputbox mt-3 mr-2">
-                                        <span>Son Kullanım Tarihi</span>
+                                        <span>Expiration Date</span>
                                         <input type="text" name="name" minlength="5" maxlength="5" class="form-control"
-                                            formControlName="expirationDate" placeholder="Örn: 04/21" />
+                                            formControlName="expirationDate" placeholder="e.g. 05/25" />
                                     </div>
                                     <div class="inputbox mt-3 mr-2">
-                                        <span>Güvenlik Kodu</span>
+                                        <span>CVV</span>
                                         <input type="text" name="name" minlength="3" maxlength="4" class="form-control"
-                                            formControlName="cvv" placeholder="Örn: 123" />
+                                            formControlName="cvv" placeholder="e.g. 333" />
                                     </div>
                                 </div>
                             </div>
@@ -129,13 +130,13 @@
             <div class="check" style="margin-left: 17px">
                 <div class="form-check form-switch">
                     <input [(ngModel)]="isChecked" class="form-check-input" type="checkbox" id="isChecked" checked />
-                    <label class="form-check-label" for="isChecked">Kartımı kaydet</label>
+                    <label class="form-check-label" for="isChecked">Save My Card</label>
                 </div>
             </div>
             <div class="card-footer">
                 <div class="row">
                     <button (click)="pay()" class="btn my-btn">
-                        Ödeme Yap
+                        Pay
                         <strong class="text-warning">({{ amountOfPayment | vatAdded: 18 | currency: "₺" }})
                         </strong>
                     </button>
