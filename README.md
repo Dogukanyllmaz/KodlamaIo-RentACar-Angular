@@ -89,8 +89,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
   <img src="./src/assets/img/sunum8.png" width= "600" alt ="Rent aCar">
   <img src="./src/assets/img/sunum9.png" width= "600" alt ="Rent aCar">
   <img src="./src/assets/img/sunum10.png" width= "600" alt ="Rent aCar">
-  <img src="./src/assets/img/sunum11.png" width= "600" alt ="Rent aCar">
-  <img src="./src/assets/img/sunum12.png" width= "600" alt ="Rent aCar">
+ 
 </p>
 
 ---
