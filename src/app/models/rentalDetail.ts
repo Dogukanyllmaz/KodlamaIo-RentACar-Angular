@@ -9,4 +9,5 @@ export interface RentalDetail {
   description: string;
   rentDate: Date;
   returnDate: Date;
+  dailyPrice: number;
 }

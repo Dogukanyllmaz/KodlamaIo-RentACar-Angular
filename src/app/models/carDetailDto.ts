@@ -9,6 +9,6 @@ export interface CarDetail {
   colorId: number;
   brandId: number;
   imagePath: string;
-  minFindex: number;
+  carFindexPoint: number;
   status: boolean;
 }

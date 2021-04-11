@@ -16,9 +16,8 @@ import { CustomerDetail } from 'src/app/models/customerDetail';
 })
 export class RentalCarComponent implements OnInit {
   rentals: Rental[] = [];
-  customers: CustomerDetail[];
-  car: Car;
-  customerId: number;
+  customers: Customer[];
+  id: number;
   rentDate: Date;
   returnDate: Date;
   rentBeginDate: Date;
@@ -31,6 +30,8 @@ export class RentalCarComponent implements OnInit {
     private customerService: CustomerService,
     private toastr: ToastrService
   ) {}
+
+  @Input() car: Car;
 
   ngOnInit(): void {
     this.getCustomer();
@@ -61,7 +62,7 @@ export class RentalCarComponent implements OnInit {
   create() {
     let rental: Rental = {
       carId: this.car.id,
-      customerId: parseInt(this.customerId.toString()),
+      customerId: parseInt(this.id.toString()),
       rentDate: this.rentDate,
       returnDate: this.returnDate,
     };

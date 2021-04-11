@@ -1,24 +1,26 @@
-<body class="text-center">
-    <form action="index.html" class="box" method="POST"></form>
-    <main class="form-signin">
+<body class="text-center" style="background: transparent;">
+    <img src="https://localhost:44326//uploads/loginbackground.jpg" alt="">
+    <div class="container">
+        <div class="row">
+            <main class="form-signin">
+                <form [formGroup]="loginForm">
 
+                    <div class="form-floating">
+                        <input formControlName="email" type="email" class="form-control" id="floatingInput"
+                            placeholder="name@example.com">
+                        <label for="floatingInput">Email address</label>
+                    </div>
+                    <div class="form-floating">
+                        <input formControlName="password" type="password" class="form-control" id="floatingPassword"
+                            placeholder="Password">
+                        <label for="floatingPassword">Password</label>
+                    </div>
 
-        <form [formGroup]="loginForm">
-            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+                    <button class="w-100 btn btn-lg" (click)="login()">Sign in</button>
 
-            <div class="form-floating">
-                <input formControlName="email" type="email" class="form-control" id="floatingInput"
-                    placeholder="name@example.com">
-                <label for="floatingInput">Email address</label>
-            </div>
-            <div class="form-floating">
-                <input formControlName="password" type="password" class="form-control" id="floatingPassword"
-                    placeholder="Password">
-                <label for="floatingPassword">Password</label>
-            </div>
-
-            <a routerLink="/register">Don't have an account?</a>
-            <button class="w-100 btn btn-lg btn-primary" (click)="login()">Sign in</button>
-        </form>
-    </main>
+                    <button class="registerbtn" routerLink="/login/register">Don't have an account?</button>
+                </form>
+            </main>
+        </div>
+    </div>
 </body>

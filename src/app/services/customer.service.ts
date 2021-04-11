@@ -21,6 +21,12 @@ export class CustomerService {
     );
   }
 
+  getCustomers(): Observable<ListResponseModel<Customer>> {
+    return this.httpClient.get<ListResponseModel<Customer>>(
+      this.apiUrl + 'getall'
+    );
+  }
+
   getCustomerByUserId(userId: number): Observable<ListResponseModel<Customer>> {
     return this.httpClient.get<ListResponseModel<Customer>>(
       this.apiUrl + 'getbyuserid?userId=' + userId

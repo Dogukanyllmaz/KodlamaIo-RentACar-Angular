@@ -4,6 +4,7 @@ import { Card } from 'primeng/card';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ListResponseModel } from '../models/listResponseModel';
+import { Payment } from '../models/payment';
 import { ResponseModel } from '../models/responseModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
 
@@ -38,5 +39,10 @@ export class PaymentService {
     return this.httpClient.get<ListResponseModel<Card>>(
       this.apiUrl + 'saveCard/getbycardnumber?cardNumber=' + cardNumber
     );
+  }
+
+  payment(payment: Payment): Observable<ResponseModel> {
+    let newUrl = this.apiUrl + 'rentals/payment';
+    return this.httpClient.post<ResponseModel>(newUrl, payment);
   }
 }

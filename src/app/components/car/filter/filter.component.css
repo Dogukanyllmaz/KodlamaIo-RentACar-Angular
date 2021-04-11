@@ -5,3 +5,21 @@
 .btn {
   width: 100px;
 }
+
+.filter {
+  background-color: #130f40;
+  color: white;
+}
+.clear {
+  background-color: #130f40;
+  margin-left: 10px;
+  color: white;
+}
+
+.filter:hover {
+  background-color: #686de0;
+}
+
+.clear:hover {
+  background-color: #686de0;
+}

@@ -13,5 +13,5 @@ export interface Car {
   description: string;
   status: boolean;
   carImages: CarImage[];
-  minFindex: number;
+  carFindexPoint: number;
 }

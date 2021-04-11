@@ -1,5 +1,5 @@
 .right {
-  right: -400px;
+  right: -580px;
 }
 .btn {
   margin: 10px;
@@ -8,5 +8,42 @@
 }
 
 .butonyeri {
-  margin-left: 480px;
+  margin-left: 540px;
+}
+
+nav {
+  font-size: large;
+}
+
+a {
+  color: black;
+}
+
+.register {
+  background-color: #dcdde1;
+}
+
+.register:hover {
+  background-color: #b6b9bd;
+}
+
+.login {
+  background-color: #dfe4ea;
+}
+
+.login:hover {
+  background-color: #b6b9bd;
+}
+
+.nav-link {
+  opacity: 0.7;
+}
+
+.dropdown-toggle {
+  background-color: #e3e4e9;
+  border-radius: 10px;
+}
+
+.nav-link:hover {
+  opacity: 1;
 }

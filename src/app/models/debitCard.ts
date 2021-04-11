@@ -3,7 +3,7 @@ export interface DebitCard {
   cardholderName: string;
   carholderLastName: string;
   cardNumber: string;
-  cvv: string;
+  cvv: number;
   expirationDate: string;
-  balance: Number;
+  balance: number;
 }

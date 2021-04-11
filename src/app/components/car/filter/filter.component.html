@@ -19,13 +19,12 @@
                 <option [value]=color.id *ngFor="let color of colors">{{color.name}}</option>
             </select>
         </div>
+        <div class="col col-1"></div>
 
-        <div class="col col-2">
-            <button routerLink="/cars/filter/{{currentBrandId}}/{{currentColorId}}" type="button"
-                class="btn btn-primary">Search</button>
+        <div class="col col-3">
+            <button routerLink="/cars/filter/{{currentBrandId}}/{{currentColorId}}" class="btn filter">Search</button>
+            <button routerLink="/cars" class="btn clear">Clear</button>
         </div>
-        <div class="col col-2">
-            <button routerLink="/cars" type="button" class="btn btn-danger">Clear</button>
-        </div>
+
     </div>
 </div>

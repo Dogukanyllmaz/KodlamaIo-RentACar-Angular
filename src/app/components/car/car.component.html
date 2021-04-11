@@ -5,14 +5,19 @@
         <input class="form-control form-control-dark" type="text" style="margin-bottom: 10px;" placeholder="Search"
             [(ngModel)]="filterText">
         <div *ngFor="let car of cars | navCarFilter:filterText" class="card" style="width:340px;">
-            <img [src]="imageUrl + car.imagePath" (error)="car.imagePath = 'uploads/default.jpg'" height="100%"
-                width="100%" class="card-img-top" alt="Car image">
+            <img [src]="imageUrl + car.imagePath" (error)="car.imagePath = 'uploads/default.jpg'" class="card-img-top"
+                style="height: 210px;" alt="Car image">
             <div class="card-body">
-                <h5 class="card-title">{{car.name | uppercase}}</h5>
-                <p class="card-text">{{car.brandName}} - {{car.colorName}}</p>
-                <p class="card-text">{{car.description}}</p>
-                <p class="card-text">{{car.dailyPrice | currency:"₺"}}</p>
-                <button class="btn btn-primary" routerLink="/cars/details/{{car.id}}">See more</button>
+                <h5 class="card-title"><strong>{{car.name}}</strong></h5>
+                <hr>
+                <p class="card-text"> <strong>Brand:</strong> {{car.brandName}}</p>
+                <hr>
+                <p class="card-text"><strong>Color:</strong> {{car.colorName}}</p>
+                <hr>
+                <p class="card-text"><strong>Model Year:</strong> {{car.modelYear}}</p>
+                <hr>
+                <p class="card-text"><strong>Daily Price:</strong> {{car.dailyPrice | currency:"₺"}}</p>
+                <button class="btn" routerLink="/cars/details/{{car.id}}">See More</button>
             </div>
         </div>
     </div>

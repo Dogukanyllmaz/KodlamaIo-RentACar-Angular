@@ -6,11 +6,6 @@
         <h4>Customers</h4>
     </li>
     <li class="list-group-item" *ngFor="let customer of customers">
-        {{
-        customer.userName +
-        " (" +
-        customer.companyName +
-        ")"
-        }}
+        <strong>{{customer.userName}}: </strong> {{customer.companyName}}
     </li>
 </ul>

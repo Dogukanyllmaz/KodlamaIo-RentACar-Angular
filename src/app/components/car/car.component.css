@@ -3,8 +3,16 @@
 }
 .card {
   margin: 10px;
+  text-align: center;
+  padding: 0;
 }
 
 .btn {
   width: 100%;
+  background-color: #130f40;
+  color: white;
+}
+
+.btn:hover {
+  background-color: #686de0;
 }

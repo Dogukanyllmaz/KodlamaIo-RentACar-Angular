@@ -1,5 +1,5 @@
 <div class="d-grid gap-2">
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#rentModal">
+    <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#rentModal">
         Rent It
     </button>
 </div>
@@ -22,14 +22,14 @@
                 <div class="form-group row mb-2">
                     <div class="col-8">
                         <input id="dailyPrice" type="text" disabled="disabled" class="form-control"
-                            [value]="car.dailyPrice | currency " />
+                            [value]="car.dailyPrice" />
                     </div>
                 </div>
 
                 <label for="customer" class="col-4 col-form-label">Customer :</label>
                 <div class="form-group row mb-2">
                     <div class="col-8">
-                        <select [(ngModel)]="customerId" class="form-select">
+                        <select [(ngModel)]="id" class="form-select">
                             <option *ngFor="let customer of customers" [value]="customer.id">
                                 {{ customer.companyName }}
                             </option>
@@ -57,7 +57,7 @@
 
 
             <div class="modal-footer">
-                <button data-bs-dismiss="modal" (click)="create()" type="button" class="btn btn-outline-primary">
+                <button data-bs-dismiss="modal" (click)="create()" type="button" class="btn btn-detail">
                     Rent
                 </button>
             </div>

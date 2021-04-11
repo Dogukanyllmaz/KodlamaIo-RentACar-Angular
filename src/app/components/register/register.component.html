@@ -1,32 +1,31 @@
-<div>
-    <div class="container mt--10 pb-1">
-        <div class="row justify-content-center">
-            <div class="col-lg-5 col-md-7">
-                <div class="card bg-secondary shadow border-0">
-                    <div class="card-body px-lg-5 py-lg-5">
-                        <form [formGroup]="registerForm">
-                            <h1 align="center">Register</h1>
-                            <div class="form-floating">
-                                <input formControlName="firstName" type="text" class="form-control" id="firstName"
-                                    name="firstName" placeholder="First Name">
-                            </div>
-                            <div class="form-floating">
-                                <input formControlName="lastName" type="text" id="lastName" name="lastName"
-                                    class="form-control" placeholder="Last Name">
-                            </div>
-                            <div class="form-floating">
-                                <input formControlName="email" type="email" class="form-control" id="email" name="email"
-                                    placeholder="Email">
-                            </div>
-                            <div class="form-floating">
-                                <input formControlName="password" type="password" class="form-control" id="password"
-                                    placeholder="Password">
-                            </div>
-                            <button class="w-100 btn btn-lg btn-primary" (click)="register()">Register</button>
-                        </form>
-                    </div>
-                </div>
+<body class="text-center" style="background: transparent;">
+
+    <img src="https://www.bmw.com.tr/content/dam/bmw/marketTR/common/kampanya/teaser/haziran-2020/bmw-excellence-club/bmw-excellence-club-desktop.jpg/_jcr_content/renditions/cq5dam.resized.img.1185.large.time1591776071431.jpg"
+        alt="">
+    <main class="form-signin">
+        <form [formGroup]="registerForm">
+            <h1 align="center">Register</h1>
+            <div class="form-floating">
+                <input formControlName="firstName" type="text" class="form-control" id="firstName" name="firstName"
+                    placeholder="First Name">
+                <label for="firstName">First Name</label>
             </div>
-        </div>
-    </div>
-</div>
+            <div class="form-floating">
+                <input formControlName="lastName" type="text" id="lastName" name="lastName" class="form-control"
+                    placeholder="Last Name">
+                <label for="lastName">Last Name</label>
+            </div>
+            <div class="form-floating">
+                <input formControlName="email" type="email" class="form-control" id="email" name="email"
+                    placeholder="Email">
+                <label for="email">Email address</label>
+            </div>
+            <div class="form-floating">
+                <input formControlName="password" type="password" class="form-control" id="password"
+                    placeholder="Password">
+                <label for="password">Password</label>
+            </div>
+            <button class="btn" (click)="register()">Register</button>
+        </form>
+    </main>
+</body>

@@ -38,6 +38,8 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 import { RentalCarComponent } from './components/rental-car/rental-car.component';
 import { VatAddedPipe } from './pipes/vat-added.pipe';
 import { CustomerAddComponent } from './components/customer-add/customer-add.component';
+import { AboutComponent } from './components/about/about.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +70,8 @@ import { CustomerAddComponent } from './components/customer-add/customer-add.com
     RentalCarComponent,
     VatAddedPipe,
     CustomerAddComponent,
+    AboutComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

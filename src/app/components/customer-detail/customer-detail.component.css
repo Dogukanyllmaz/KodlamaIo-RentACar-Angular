@@ -4,3 +4,12 @@
 .btn {
   width: 100%;
 }
+
+.btn-update {
+  background-color: #130f40;
+  color: white;
+}
+
+.btn-update:hover {
+  background-color: #686de0;
+}
