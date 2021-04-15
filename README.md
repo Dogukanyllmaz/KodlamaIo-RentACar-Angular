@@ -32,10 +32,10 @@
 
 ```bash
 # Clone the repository
-$ git clone https://github.com/Dogukanyllmaz/Rent-A-Car---FrontEnd
+$ git clone https://github.com/Dogukanyllmaz/RentaCar-Frontend-Angular-
 
 # Go to file
-$ cd Rent-A-Car---FrontEnd.git
+$ cd RentaCar-Frontend-Angular-.git
 
 # Install dependencies
 $ npm install
