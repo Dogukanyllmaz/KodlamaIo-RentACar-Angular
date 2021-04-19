@@ -40,6 +40,8 @@ import { VatAddedPipe } from './pipes/vat-added.pipe';
 import { CustomerAddComponent } from './components/customer-add/customer-add.component';
 import { AboutComponent } from './components/about/about.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { VehicleTypeComponent } from './components/vehicle-type/vehicle-type.component';
+import { VehicleTypeFilterPipe } from './pipes/vehicle-type-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -72,6 +74,8 @@ import { FooterComponent } from './components/footer/footer.component';
     CustomerAddComponent,
     AboutComponent,
     FooterComponent,
+    VehicleTypeComponent,
+    VehicleTypeFilterPipe,
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,7 @@ import { Car } from 'src/app/models/car';
 import { RentalService } from 'src/app/services/rental.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { CustomerDetail } from 'src/app/models/customerDetail';
+import { UserModel } from 'src/app/models/userModel';
 
 @Component({
   selector: 'app-rental-car',
@@ -15,13 +16,14 @@ import { CustomerDetail } from 'src/app/models/customerDetail';
   styleUrls: ['./rental-car.component.css'],
 })
 export class RentalCarComponent implements OnInit {
-  rentals: Rental[] = [];
+  rentals: Rental[];
   customers: Customer[];
-  id: number;
+  customerId: number;
   rentDate: Date;
   returnDate: Date;
   rentBeginDate: Date;
   rentEndDate: Date;
+  user: UserModel[];
 
   constructor(
     private rentalService: RentalService,
@@ -34,7 +36,7 @@ export class RentalCarComponent implements OnInit {
   @Input() car: Car;
 
   ngOnInit(): void {
-    this.getCustomer();
+    this.getCustomers();
   }
 
   isLogOK() {
@@ -47,7 +49,7 @@ export class RentalCarComponent implements OnInit {
     }
   }
 
-  getCustomer() {
+  getCustomers() {
     this.customerService.getCustomer().subscribe((response) => {
       this.customers = response.data;
     });
@@ -62,7 +64,7 @@ export class RentalCarComponent implements OnInit {
   create() {
     let rental: Rental = {
       carId: this.car.id,
-      customerId: parseInt(this.id.toString()),
+      customerId: parseInt(this.customerId.toString()),
       rentDate: this.rentDate,
       returnDate: this.returnDate,
     };

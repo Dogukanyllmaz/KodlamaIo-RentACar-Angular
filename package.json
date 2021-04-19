@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "^11.2.8",
     "@angular/router": "^11.2.8",
     "@auth0/angular-jwt": "^5.0.2",
+    "@fortawesome/fontawesome-free": "^5.15.3",
     "@ng-bootstrap/ng-bootstrap": "^9.1.0",
     "angular-popper": "^2.0.1",
     "angular-schema": "0.0.4",

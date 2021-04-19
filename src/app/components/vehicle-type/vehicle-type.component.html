@@ -1,0 +1,14 @@
+<div style="margin-top: 10px" class="mb-3">
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Search Types..." />
+</div>
+<div *ngIf="filterText" class="alert alert-success">
+    You look this {{ filterText }}
+</div>
+<ul class="list-group" style="margin: 5px">
+    <li routerLink="/cars" [class]="getAllVehicleTypeClass()">All Types</li>
+    <li (click)="setCurrentVehicleType(vehicleType)" routerLink="/cars/vehicleType/{{ vehicleType.id}}"
+        *ngFor="let vehicleType of vehicleTypes | vehicleTypeFilter: filterText"
+        [class]="getCurrentVehicleTypeClass(vehicleType)">
+        {{ vehicleType.typeName }}
+    </li>
+</ul>

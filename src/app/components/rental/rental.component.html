@@ -6,22 +6,18 @@
     <thead *ngIf="dataLoaded != false">
         <tr>
             <th>Id</th>
-            <th>Brand</th>
             <th>Customer Name</th>
             <th>Rent Date</th>
             <th>Return Date</th>
-            <th>Description</th>
         </tr>
     </thead>
-    <tr *ngFor="let rental of rentals">
+    <tr *ngFor="let rental of rental">
         <td>{{ rental.id }}</td>
-        <td>{{ rental.brandName }}</td>
-        <td>{{ rental.userName }}</td>
+        <td>{{ rental.customerId }}</td>
         <td>{{ rental.rentDate }}</td>
         <td *ngIf="rental.returnDate == null">Undelivered</td>
         <td *ngIf="rental.returnDate != null">
             {{ rental.returnDate }}
         </td>
-        <td>{{ rental.description }}</td>
     </tr>
 </table>

@@ -14,4 +14,5 @@ export interface Car {
   status: boolean;
   carImages: CarImage[];
   carFindexPoint: number;
+  typeId: number;
 }

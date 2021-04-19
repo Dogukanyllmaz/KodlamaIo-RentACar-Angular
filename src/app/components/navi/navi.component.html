@@ -13,17 +13,17 @@
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/about">About</a>
                 </li>
-                <form class="d-flex butonyeri" *ngIf="Authenticated == false">
+                <form class="d-flex butonyeri" *ngIf="!isLogOK()">
                     <button class="btn register" routerLink="/login/register">Register</button>
                     <button class="btn login" type="submit" routerLink="/login">
                         Login
                     </button>
                 </form>
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="Authenticated != false">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="isLogOK() != false">
                     <li class="nav-item dropdown right">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            {{user.firstName}} {{user.lastName}} (FS:{{user.findexPoint}})
+
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" routerLink="/profile">Profile</a></li>

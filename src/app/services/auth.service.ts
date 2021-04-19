@@ -86,4 +86,10 @@ export class AuthService {
       userDetail
     );
   }
+
+  logOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    localStorage.removeItem('email');
+  }
 }

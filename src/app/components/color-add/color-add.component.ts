@@ -39,18 +39,18 @@ export class ColorAddComponent implements OnInit {
   }
   createColorAddForm() {
     this.colorAddForm = this.formBuilder.group({
-      colorName: ['', Validators.required],
+      name: ['', Validators.required],
     });
   }
   createColorUpdateForm() {
     this.colorUpdateForm = this.formBuilder.group({
-      colorId: ['', Validators.required],
-      colorName: ['', Validators.required],
+      id: ['', Validators.required],
+      name: ['', Validators.required],
     });
   }
   createColorDeleteForm() {
     this.colorDeleteForm = this.formBuilder.group({
-      colorId: ['', Validators.required],
+      id: ['', Validators.required],
     });
   }
   colorAdd() {

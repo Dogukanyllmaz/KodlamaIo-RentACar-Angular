@@ -1,6 +1,7 @@
 export interface RentalDetail {
   id: number;
   carId: number;
+
   carName: number;
   brandName: string;
   userName: string;

@@ -8,7 +8,7 @@
                 <form [formGroup]="carAddForm">
                     <label for="brandSelect">Brand </label>
                     <div class="form-group">
-                        <select formControlName="brandID" class="form-control" id="brandSelect">
+                        <select formControlName="brandId" class="form-control" id="brandSelect">
                             <option *ngFor="let brand of brands" [value]="brand.id">{{brand.name}}</option>
                         </select>
                     </div>
@@ -18,7 +18,7 @@
                     </div>
                     <label for="colorSelect">Color </label>
                     <div class="form-group">
-                        <select formControlName="colorID" class="form-control" id="colorSelect">
+                        <select formControlName="colorId" class="form-control" id="colorSelect">
                             <option *ngFor="let color of colors" [value]="color.id">{{color.name}}</option>
                         </select>
                     </div>
@@ -35,6 +35,11 @@
                     <label for="description">Desription</label>
                     <div class="form-group">
                         <input type="textarea" id="description" formControlName="description" class="form-control"
+                            placeholder=" " />
+                    </div>
+                    <label for="carFindexPoint">Findex Point</label>
+                    <div class="form-group">
+                        <input type="textarea" id="carFindexPoint" formControlName="carFindexPoint" class="form-control"
                             placeholder=" " />
                     </div>
                 </form>

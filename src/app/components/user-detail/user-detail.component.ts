@@ -41,7 +41,6 @@ export class UserDetailComponent implements OnInit {
           this.localStorageService.add('lastName', data.lastName);
           this.localStorageService.add('password', data.password);
           this.localStorageService.add('userId', data.id);
-          this.localStorageService.add('findexpoint', data.findexPoint);
         });
       });
   }

@@ -45,4 +45,11 @@ export class PaymentService {
     let newUrl = this.apiUrl + 'rentals/payment';
     return this.httpClient.post<ResponseModel>(newUrl, payment);
   }
+
+  executePayment(payment: Payment): Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(
+      this.apiUrl + 'payments/executepayment',
+      payment
+    );
+  }
 }

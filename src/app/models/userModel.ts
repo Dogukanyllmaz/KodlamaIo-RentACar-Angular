@@ -4,6 +4,4 @@ export interface UserModel {
   lastName: string;
   email: string;
   password: string;
-  status: boolean;
-  findexPoint: number;
 }

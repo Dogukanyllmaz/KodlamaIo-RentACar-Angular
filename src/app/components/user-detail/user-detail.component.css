@@ -1,23 +1,9 @@
 .btn {
   width: 100%;
-}
-
-.btn-password {
-  background-color: #130f40;
-  color: white;
-  width: 250px;
-  margin-left: 145px;
-}
-
-.btn-password:hover {
-  background-color: #686de0;
-}
-
-.btn-update {
   background-color: #130f40;
   color: white;
 }
 
-.btn-update:hover {
+.btn:hover {
   background-color: #686de0;
 }

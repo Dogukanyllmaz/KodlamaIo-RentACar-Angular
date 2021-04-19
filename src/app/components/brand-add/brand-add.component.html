@@ -23,10 +23,9 @@
             <div class="card-body">
                 <form [formGroup]="brandAddForm">
                     <div class="mb-3">
-                        <label for="unitPrice">Brand</label>
+                        <label for="name">Brand</label>
                         <div class="form-group">
-                            <input type="text" id="brandName" formControlName="brandName" class="form-control"
-                                placeholder="" />
+                            <input type="text" id="name" formControlName="name" class="form-control" placeholder="" />
                         </div>
                     </div>
                 </form>
@@ -45,14 +44,13 @@
                 <div class="card-body">
                     <form [formGroup]="brandUpdateForm">
                         <div class="mb-3">
-                            <label for="unitPrice">Brand Id</label>
+                            <label for="id">Brand Id</label>
                             <div class="form-group">
-                                <input type="number" id="brandId" formControlName="brandId" class="form-control"
-                                    placeholder="" />
+                                <input type="number" id="id" formControlName="id" class="form-control" placeholder="" />
                             </div>
-                            <label for="unitPrice">Brand</label>
+                            <label for="name">Brand</label>
                             <div class="form-group">
-                                <input type="text" id="brandName" formControlName="brandName" class="form-control"
+                                <input type="text" id="name" formControlName="name" class="form-control"
                                     placeholder="" />
                             </div>
                         </div>
@@ -73,10 +71,9 @@
                 <div class="card-body">
                     <form [formGroup]="brandDeleteForm">
                         <div class="mb-3">
-                            <label for="unitPrice">Brand Id</label>
+                            <label for="id">Brand Id</label>
                             <div class="form-group">
-                                <input type="number" id="brandId" formControlName="brandId" class="form-control"
-                                    placeholder="" />
+                                <input type="number" id="id" formControlName="id" class="form-control" placeholder="" />
                             </div>
                         </div>
                     </form>

@@ -2,6 +2,8 @@ export interface CustomerDetail {
   id: number;
   userId: number;
   companyName: string;
-  userName: string;
+  firstName: string;
+  lastName: string;
   email: string;
+  findexScore: number;
 }

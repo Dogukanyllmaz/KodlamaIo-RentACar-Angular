@@ -41,18 +41,18 @@ export class BrandAddComponent implements OnInit {
   }
   createBrandAddForm() {
     this.brandAddForm = this.formBuilder.group({
-      brandName: ['', Validators.required],
+      name: ['', Validators.required],
     });
   }
   createBrandDeleteForm() {
     this.brandDeleteForm = this.formBuilder.group({
-      brandId: ['', Validators.required],
+      id: ['', Validators.required],
     });
   }
   createBrandUpdateForm() {
     this.brandUpdateForm = this.formBuilder.group({
-      brandId: ['', Validators.required],
-      brandName: ['', Validators.required],
+      id: ['', Validators.required],
+      name: ['', Validators.required],
     });
   }
   add() {

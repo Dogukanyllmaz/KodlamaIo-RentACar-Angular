@@ -11,11 +11,6 @@
                 <div class="card-body" *ngFor="let user of user">
                     <form [formGroup]="updateUserForm">
                         <div class="mb-3">
-                            <label for="findexPoint" class="form-label">Findex Score</label>
-                            <input type="number" class="form-control" formControlName="findexPoint" id="findexPoint"
-                                placeholder="{{ user.findexPoint }}" readonly />
-                        </div>
-                        <div class="mb-3">
                             <label for="firstName" class="form-label">FirstName</label>
                             <input type="text" class="form-control" formControlName="firstName" id="firstName"
                                 placeholder="{{ user.firstName }}" />

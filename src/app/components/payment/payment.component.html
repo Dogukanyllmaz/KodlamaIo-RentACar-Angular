@@ -1,7 +1,7 @@
 <ul class="list-group list-group-flush">
     <li class="list-group-item">
         Rented vehicle :
-        <strong>{{ carDetail.description }}</strong>
+        <strong>{{ carDetail.name }}</strong>
     </li>
     <li class="list-group-item">
         Color : <strong>{{ carDetail.colorName }}</strong>
@@ -12,7 +12,7 @@
     <li class="list-group-item">
         Rent Price with VAT :
         <strong>
-            {{ carDetail.dailyPrice | vatAdded: 18 | currency: "₺" }}/Gün</strong>
+            {{ carDetail.dailyPrice | vatAdded: 18 | currency: "₺" }}/Day</strong>
     </li>
     <li class="list-group-item">
         Total Amount Payable :
